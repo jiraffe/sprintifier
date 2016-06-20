@@ -1,0 +1,18 @@
+{
+  "name": "angular_project",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-bootstrap": "0.14.3",
+    "angular-ui-router": "0.2.13",
+    "angular-ui-utils": "0.2.2",
+    "bootstrap": "3.3.6",
+    "fullcalendar":"2.4.0",
+    "moment": "*"
+  },
+  "overrides": {
+    "moment": {
+      "main": "min/moment.min.js"
+    }
+  }
+}

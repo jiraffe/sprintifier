@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-hidden="true" tooltip="Закрыть" tooltip-placement="left" ng-click="$close();">&times;</button>
+    <h4 class="modal-title" id="regictrationTitle"> Добавить пользователя в проект </h4>
+</div>
+
+<div class="modal-body"> 
+	<form class="form-horizontal" id="searchUserByRoleForm">
+		<fieldset>
+			 <div class="input-group">
+			   	<select id="selectedRole" name="selectedRole" ng-change="loadUsersByPosition" class="form-control" ng-model="selectedRole" ng-options="role as role.name for role in roles">
+					<option value="" disabled selected>Выберите роль...</option>
+				</select>
+			 </div>
+			 <hr />
+			
+			<table class="table">
+			    <thead>
+					<th>Имя</th>
+				</thead>
+				<tbody ng-if="users.length">
+					<tr ng-repeat="user in users | orderBy:'-name'">
+						<td>  {{user.name}} </td>
+					</tr>
+				</tbody>
+				<tbody ng-if="!users.length">
+					<tr>
+						<td>
+							Нет пользователей с данной ролью
+						<td>
+					</tr>
+				</tbody>
+			</table>
+
+		</fieldset>
+	</form>
+</div>

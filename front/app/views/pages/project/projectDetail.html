@@ -1,0 +1,68 @@
+<a ui-sref="projects">назад</a>
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">Проект: {{project.name}}</div>
+	<div class="panel-body">
+		
+		<div class="col-md-6">
+			<label class="col-md-5 control-label min-height-30"> Размер спринта  </label>
+			<div class="col-md-7"> {{project.sprintSize}} </div>
+		</div>
+		<div class="col-md-6">
+			<label class="col-md-5 control-label min-height-30"> Team capacity  </label>
+			<div class="col-md-7"> {{project.teamCapacity}} </div>
+		</div>
+		<div class="col-md-6">
+			<label class="col-md-5 control-label min-height-30"> Время на тесты  </label>
+			<div class="col-md-7"> {{project.timeForTests}} % </div>
+		</div>
+		<div class="col-md-6">
+			<label class="col-md-5 control-label min-height-30"> Время на стабилизацию  </label>
+			<div class="col-md-7"> {{project.timeForStabilizing}} % </div>
+		</div>
+	</div>
+</div>
+
+<div class="panel panel-default">
+        <div class="panel-heading">
+        	<span>Комманда</span>
+        	<input type="button" class="btn btn-success btn-xs" add-team-member-popup value="Добавить">
+        </div>
+        <div class="panel-body">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th class="text-center">#</th>
+						<th class="text-center">Имя</th>
+						<th class="text-center">Позиция</th>
+						<th class="text-center">Фокус-фактор</th>
+						<th class="text-center">Примечания</th>
+						<th class="text-center">Действия</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr id='members' ng-repeat="member in project.members | orderBy:'member.user.name'">
+						<td>{{$index+1}}</td>
+						<td class="text-center">{{member.user.name}}</td>
+						<td class="text-center">{{member.user.position.name}}</td>
+						<td class="text-center">{{member.focus}}</td>
+						<td class="text-center">{{member.note}}</td>
+						<td>
+							<input 
+								class="btn btn-danger btn-xs"
+								type="button" 
+								value="Удалить"
+								confirm-dialog 
+								confirm-click="removeMember(member.id)"
+								confirm-message="Вы действительно хотите удалить члена комманды?"
+								confirm-header="Удалить члена комманды?" 
+							>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

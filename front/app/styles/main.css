@@ -1,0 +1,11 @@
+body {
+	font-size: 12px;
+};
+
+.margin-top-10 {
+	margin-top: 10px !important;
+}
+
+.fc-sat, .fc-sun {
+	background-color: #ccf;
+}

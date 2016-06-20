@@ -1,0 +1,43 @@
+<button type="button" class="btn btn-sm btn-success" create-project-popup save-method="add">Создать</button>
+<div class="panel panel-default margin-top-10">
+	<div class="panel panel-primary margin-top-10">
+		<div class="panel-heading">
+	  		<span>Проекты</span>
+		</div>
+
+		<div class="panel-body">
+			<table class="table">
+			    <thead>
+					<th>Название</th>
+					<th>Дата начала</th>
+					<th>Действия</th>
+				</thead>
+				<tbody ng-if="projects.length">
+					<tr ng-repeat="project in projects | orderBy:'-name'">
+						<td> <a ui-sref="projectDetail({id: project.id})"> {{project.name}} </a></td>
+						<td>{{field.type.label}}</td>
+						<td>
+							<button
+								type="button" 
+								class="btn btn-danger btn-xs">
+									<span>Редактировать</span>
+							</button>
+							<button
+								type="button"
+								class="btn btn-danger btn-xs">
+									<span>Удалить</span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+				<tbody ng-if="!projects.length">
+					<tr>
+						<td>
+							Список проектов пуст
+						<td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

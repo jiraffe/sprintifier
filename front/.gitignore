@@ -1,0 +1,14 @@
+# Folders to ignore
+.git
+.svn
+
+# Node.JS
+node_modules
+npm-debug.log
+
+# Bower components
+app/scripts/libs
+
+# dist folder
+dist
+
